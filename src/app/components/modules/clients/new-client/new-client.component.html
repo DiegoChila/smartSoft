@@ -1,0 +1,83 @@
+<div *ngIf="!onLoad">
+  <div class="container cont_st">
+    <div class="form_st animate__animated animate__fadeIn col-md-7">
+      <form (ngSubmit)="onSubmit()" #form="ngForm">
+        <div class="form-group input_name_st animate__animated animate__fadeInUp">
+          <label for="name">Nombre</label>
+          <input class="form-control mt-1" type="text" id="name" name="name" minlength="4" placeholder="Ingresa el nombre" #name="ngModel" [(ngModel)]="client.name" [ngClass]="{'is-valid': !name.invalid, 'is-invalid':name.invalid && (name.dirty || name.touched)}" required>
+          <div class="invalid-feedback" *ngIf="name.invalid && (name.dirty || name.touched)">
+            <div *ngIf="name.errors?.minlength">
+              Introduzca un nombre con 4 caracteres mínimo
+            </div>
+            <div *ngIf="name.errors?.required">
+              El nombre es requerido
+            </div>
+          </div>
+        </div>
+        <div class="form-group mt-2 input_lastname_st animate__animated animate__fadeInUp">
+          <label for="lastname">Apellido</label>
+          <input class="form-control mt-1" type="text" id="lastname" name="lastname" minlength="4" placeholder="Ingresa el apellido" #lastname="ngModel" [(ngModel)]="client.lastname" [ngClass]="{'is-valid': !lastname.invalid, 'is-invalid':lastname.invalid && (lastname.dirty || lastname.touched)}" required>
+          <div class="invalid-feedback" *ngIf="lastname.invalid && (lastname.dirty || lastname.touched)">
+            <div *ngIf="lastname.errors?.minlength">
+              Introduzca un apellido con 4 caracteres mínimo
+            </div>
+            <div *ngIf="lastname.errors?.required">
+              El apellido es requerido
+            </div>
+          </div>
+        </div>
+        <div class="form-group mt-2 input_address_st animate__animated animate__fadeInUp">
+          <label for="address">Dirección</label>
+          <input class="form-control mt-1" type="text" id="address" name="address" minlength="4" placeholder="Ingresa el dirección" #address="ngModel" [(ngModel)]="client.address" [ngClass]="{'is-valid': !address.invalid, 'is-invalid':address.invalid && (address.dirty || address.touched)}" required>
+          <div class="invalid-feedback" *ngIf="address.invalid && (address.dirty || address.touched)">
+            <div *ngIf="address.errors?.minlength">
+              Introduzca una dirección con 4 caracteres mínimo
+            </div>
+            <div *ngIf="address.errors?.required">
+              La dirección es requerida
+            </div>
+          </div>
+        </div>
+        <div class="form-group mt-2 input_birthday_st animate__animated animate__fadeInUp">
+          <label for="birthday">Fecha de nacimiento</label>
+          <input class="form-control mt-1" type="date" id="birthday" name="birthday" #birthday="ngModel" [(ngModel)]="client.birthday" [ngClass]="{'is-valid': !birthday.invalid, 'is-invalid':birthday.invalid && (birthday.dirty || birthday.touched)}" required>
+          <div class="invalid-feedback" *ngIf="birthday.invalid && (birthday.dirty || birthday.touched)">
+            <div *ngIf="birthday.errors?.required">
+              La fecha de nacimiento es requerida
+            </div>
+          </div>
+        </div>
+        <div class="form-group mt-2 input_tel_st animate__animated animate__fadeInUp">
+          <label for="tel">Teléfono</label>
+          <input class="form-control mt-1" type="tel" id="tel" name="tel" minlength="4" placeholder="Ingresa el teléfono" #tel="ngModel" [(ngModel)]="client.tel" [ngClass]="{'is-valid': !tel.invalid, 'is-invalid':tel.invalid && (tel.dirty || tel.touched)}" required>
+          <div class="invalid-feedback" *ngIf="tel.invalid && (tel.dirty || tel.touched)">
+            <div *ngIf="tel.errors?.minlength">
+              Introduzca un teléfono con 4 caracteres mínimo
+            </div>
+            <div *ngIf="tel.errors?.required">
+              El teléfono es requerido
+            </div>
+          </div>
+        </div>
+        <div class="form-group mt-2 input_email_st animate__animated animate__fadeInUp">
+          <label for="email">Correo electrónico</label>
+          <input class="form-control mt-1" type="email" id="email" name="email" minlength="4" placeholder="Ingresa el correo electrónico" #email="ngModel" [(ngModel)]="client.email" [ngClass]="{'is-valid': !email.invalid, 'is-invalid':email.invalid && (email.dirty || email.touched)}" required>
+          <div class="invalid-feedback" *ngIf="email.invalid && (email.dirty || email.touched)">
+            <div *ngIf="email.errors?.minlength">
+              Introduzca un correo electrónico con 4 caracteres mínimo
+            </div>
+            <div *ngIf="email.errors?.required">
+              El correo electrónico es requerido
+            </div>
+          </div>
+        </div>
+        <div class="form-group mt-5 btn_submit_st animate__animated animate__fadeInUp">
+          <button type="submit" class="btn btn-success btn_st" [disabled]="!form.valid">Crear</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div *ngIf="onLoad" >
+  <app-loader></app-loader>
+</div>

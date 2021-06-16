@@ -1,0 +1,14 @@
+.cont_st {
+  margin-top: 50px;
+  background-color: rgba(0, 0, 0, 0.4);
+  /* opacity: 0.5; */
+  padding: 60px 50px;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  overflow: auto;
+  max-height: 500px;
+}
+
+.info_st {
+  text-align: center;
+}

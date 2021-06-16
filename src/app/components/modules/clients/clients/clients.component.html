@@ -1,0 +1,72 @@
+<div class="container" *ngIf="!onLoad">
+  <div class="cont_st">
+    <div class="mb-5">
+      <a routerLink="create" class="btn btn-success">Crear usuario</a>
+    </div>
+    <div class="animate__animated animate__fadeIn table_st example-container mat-elevation-z8">
+      <mat-table #table [dataSource]="dataSource" matSort>
+        <ng-container matColumnDef="name">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>
+          <mat-cell *matCellDef="let client" data-label="name">
+            <span class="mobile-label">Nombre:</span>
+            <div class="info_st">{{client.completeName}}</div>
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="birthday">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Fecha de nacimiento </mat-header-cell>
+          <mat-cell *matCellDef="let client" data-label="birthday">
+            <span class="mobile-label">Fecha de nacimiento:</span>
+            <div class="info_st">{{client.birthday}}</div>
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="address">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Dirección </mat-header-cell>
+          <mat-cell *matCellDef="let client" data-label="address">
+            <span class="mobile-label">Dirección:</span>
+            <div class="info_st">{{client.address}}</div>
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="tel">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Teléfono </mat-header-cell>
+          <mat-cell *matCellDef="let client" data-label="tel">
+            <span class="mobile-label">Teléfono:</span>
+            <div class="info_st">{{client.tel}}</div>
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="email">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Correo electrónico </mat-header-cell>
+          <mat-cell *matCellDef="let client" data-label="email">
+            <span class="mobile-label">Correo electrónico:</span>
+            <div class="info_st">{{client.email}}</div>
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="invoices">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> # facturas </mat-header-cell>
+          <mat-cell *matCellDef="let client" data-label="invoices">
+            <span class="mobile-label"># facturas:</span>
+            <div class="info_st">{{client.invoicesNum}}</div>
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </mat-header-cell>
+          <mat-cell *matCellDef="let client" data-label="actions">
+            <span class="mobile-label">Acciones:</span>
+            <div class="info_st"><a class="btn btn-primary" routerLink="/invoice/{{client.id}}">Facturas</a></div>
+          </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+    </div>
+  </div>
+</div>
+<div *ngIf="onLoad" >
+  <app-loader></app-loader>
+</div>

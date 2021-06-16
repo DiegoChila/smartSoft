@@ -1,0 +1,55 @@
+<div class="container" *ngIf="!onLoad">
+  <div class="cont_st">
+    <div class="mb-5">
+      <a routerLink="create" class="btn btn-success">Crear producto</a>
+    </div>
+    <div class="animate__animated animate__fadeIn table_st example-container mat-elevation-z8">
+      <mat-table #table [dataSource]="dataSource" matSort>
+        <ng-container matColumnDef="name">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>
+          <mat-cell *matCellDef="let product" data-label="name">
+            <span class="mobile-label">Nombre:</span>
+            <div class="info_st">{{product.name}}</div>
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="price">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Precio </mat-header-cell>
+          <mat-cell *matCellDef="let product" data-label="price">
+            <span class="mobile-label">Precio:</span>
+            <div class="info_st">{{product.price | currency: 'COP '}}</div>
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="stock">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Stock </mat-header-cell>
+          <mat-cell *matCellDef="let product" data-label="stock">
+            <span class="mobile-label">Stock:</span>
+            <div class="info_st">{{product.stock}}</div>
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="increment">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Incrementar </mat-header-cell>
+          <mat-cell *matCellDef="let product" data-label="increment">
+            <span class="mobile-label">Incrementar:</span>
+            <div class="info_st">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <button (click)="incrementStock(product.id, product.increment)" class="btn btn-success"><i class="fas fa-plus-circle"></i></button>
+                </div>
+                <input type="number" class="form-control" [(ngModel)]="product.increment" min="0">
+              </div>
+            </div>
+          </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+    </div>
+  </div>
+</div>
+<div *ngIf="onLoad" >
+  <app-loader></app-loader>
+</div>

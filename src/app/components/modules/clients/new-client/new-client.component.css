@@ -1,0 +1,70 @@
+.cont_st {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 0;
+}
+
+label {
+  color: aliceblue;
+}
+
+button:disabled {
+  background-color: tan;
+  border-color: tan;
+}
+
+button:enabled {
+  background-color: green;
+  border-color: green;
+}
+
+.form_st {
+  margin-top: 50px;
+  background-color: rgba(0, 0, 0, 0.4);
+  opacity: 0.5;
+  padding: 60px 50px;
+  border: 2px solid transparent;
+  border-radius: 10px;
+}
+
+.input_name_st {
+  animation-delay: 0.25s;
+}
+
+.input_lastname_st {
+  animation-delay: 0.5s;
+}
+
+.input_address_st {
+  animation-delay: 0.75s;
+}
+
+.input_birthday_st {
+  animation-delay: 1s;
+}
+
+.input_tel_st {
+  animation-delay: 1.25s;
+}
+
+.input_email_st {
+  animation-delay: 1.5s;
+}
+
+.btn_submit_st {
+  animation-delay: 0.75s;
+  text-align: center;
+}
+
+.btn_st {
+  display: inline-block;
+}
+
+.load_st {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 100;
+}

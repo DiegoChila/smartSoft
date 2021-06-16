@@ -1,0 +1,49 @@
+<div>
+  <div class="container cont_st">
+    <div class="form_st animate__animated animate__fadeIn col-md-7">
+      <form (ngSubmit)="onSubmit()" #form="ngForm">
+        <div class="form-group input_name_st animate__animated animate__fadeInUp">
+          <label for="name">Nombre</label>
+          <input class="form-control mt-1" type="text" id="name" name="name" minlength="4" placeholder="Ingresa el nombre" #name="ngModel" [(ngModel)]="product.name" [ngClass]="{'is-valid': !name.invalid, 'is-invalid':name.invalid && (name.dirty || name.touched)}" required>
+          <div class="invalid-feedback" *ngIf="name.invalid && (name.dirty || name.touched)">
+            <div *ngIf="name.errors?.minlength">
+              Introduzca un nombre con 4 caracteres mínimo
+            </div>
+            <div *ngIf="name.errors?.required">
+              El nombre es requerido
+            </div>
+          </div>
+        </div>
+        <div class="form-group mt-2 input_price_st animate__animated animate__fadeInUp">
+          <label for="price">Precio</label>
+          <div class="input-group mt-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">COP</span>
+            </div>
+            <input class="form-control" type="number" id="price" name="price" placeholder="Ingresa el precio" #price="ngModel" [(ngModel)]="product.price" [ngClass]="{'is-valid': !price.invalid, 'is-invalid':price.invalid && (price.dirty || price.touched)}" required>
+          </div>
+          <div class="invalid-feedback" *ngIf="price.invalid && (price.dirty || price.touched)">
+            <div *ngIf="price.errors?.required">
+              El precio es requerido
+            </div>
+          </div>
+        </div>
+        <div class="form-group mt-2 input_stock_st animate__animated animate__fadeInUp">
+          <label for="stock">Stock</label>
+          <input class="form-control mt-1" type="number" id="stock" name="stock" placeholder="Ingresa el stock" #stock="ngModel" [(ngModel)]="product.stock" [ngClass]="{'is-valid': !stock.invalid, 'is-invalid':stock.invalid && (stock.dirty || stock.touched)}" required>
+          <div class="invalid-feedback" *ngIf="stock.invalid && (stock.dirty || stock.touched)">
+            <div *ngIf="stock.errors?.required">
+              El stock es requerido
+            </div>
+          </div>
+        </div>
+        <div class="form-group mt-5 btn_submit_st animate__animated animate__fadeInUp">
+          <button type="submit" class="btn btn-success btn_st" [disabled]="!form.valid">Crear</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- <div *ngIf="onLoad" >
+  <app-load></app-load>
+</div> -->

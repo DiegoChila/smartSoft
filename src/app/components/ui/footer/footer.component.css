@@ -1,0 +1,22 @@
+.footer_st {
+  background-color: transparent;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.btn_st {
+  border-radius: 25px;
+  margin-left: 5px;
+  margin-right: 5px;
+  color: #025fa6!important;
+  border-color: #025fa6!important;
+}
+
+.btn_st:hover {
+  color: whitesmoke!important;
+  background-color: #025fa6!important;
+}
+
+footer {
+  color: #025fa6;
+}

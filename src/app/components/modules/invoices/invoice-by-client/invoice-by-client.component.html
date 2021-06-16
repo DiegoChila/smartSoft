@@ -1,0 +1,33 @@
+<div class="container" *ngIf="!onLoad">
+  <div class="cont_st">
+    <div class="mb-5">
+      <a (click)="createNewInvoice()" class="btn btn-success">Nueva factura</a>
+    </div>
+    <div class="card mt-3" *ngFor="let invoice of invoices">
+      <div class="card-body">
+        Fecha de facturación: {{invoice.date}}
+        <div class="card mt-3" *ngFor="let detail of invoice.details">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-4 info_st">
+                {{detail.product.name}}
+              </div>
+              <div class="col-md-4 info_st">
+                {{detail.quantity}}
+              </div>
+              <div class="col-md-4 info_st">
+                {{detail.price | currency: 'COP '}}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-3 total_st">
+          Total: {{invoice.total | currency: 'COP '}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="onLoad" >
+  <app-loader></app-loader>
+</div>

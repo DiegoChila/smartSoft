@@ -1,0 +1,9 @@
+.page_st {
+  min-height: 79vh;
+}
+
+.app_st {
+  background-image: url(../assets/images/background2.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}

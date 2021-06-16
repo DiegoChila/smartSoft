@@ -1,0 +1,28 @@
+nav {
+  background-color: transparent;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.links_st {
+  display: flex;
+  justify-content: flex-end;
+  color: #025fa6;
+}
+
+.links_st a {
+  color: #025fa6;
+}
+
+@media only screen and (max-width: 768px) {
+  .links_st {
+      margin-top: 30px;
+      display: grid;
+      justify-content: center;
+  }
+
+  .logo_st{
+      display: grid;
+      justify-content: center;
+  }
+}

@@ -1,0 +1,49 @@
+<div class="container" *ngIf="!onLoad">
+  <div class="cont_st">
+    <div class="card mt-3" *ngFor="let detail of details">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-4">
+            <label>Seleccione un producto</label>
+            <select class="form-select" aria-label="Default select example" [(ngModel)]="detail.idProduct" #product="ngModel" [ngClass]="{'is-valid': !product.invalid, 'is-invalid':product.invalid && (product.dirty || product.touched)}" required>
+              <option value="{{product.id}}" *ngFor="let product of products">{{product.name}} -- {{product.stock}}</option>
+            </select>
+            <div class="invalid-feedback" *ngIf="product.invalid && (product.dirty || product.touched)">
+              <div *ngIf="product.errors?.required">
+                El producto es requerido
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="stock">Cantidad</label>
+              <input class="form-control" type="number" id="stock" name="stock" min="1" placeholder="Ingrese la cantidad" #stock="ngModel" [(ngModel)]="detail.quantity" [ngClass]="{'is-valid': !stock.invalid, 'is-invalid':stock.invalid && (stock.dirty || stock.touched)}" required>
+              <div class="invalid-feedback" *ngIf="stock.invalid && (stock.dirty || stock.touched)">
+                <div *ngIf="stock.errors?.required">
+                  La cantidad es requerida
+                </div>
+                <div *ngIf="stock.errors?.min">
+                  La cantidad mínima es 1
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 info_st">
+            <ng-container *ngIf="!detail.finish; else elseTemplate">
+              <button [disabled]="(!detail.idProduct || !detail.quantity || detail.quantity<1)" (click)="validate(detail)" class="btn btn-success">Validar</button>
+            </ng-container>
+            <ng-template #elseTemplate>
+              Validado
+            </ng-template>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mt-5">
+      <button class="btn btn-success" [disabled]="!haveDetails" (click)="createInvoice()">Crear factura</button>
+    </div>
+  </div>
+</div>
+<div *ngIf="onLoad" >
+  <app-loader></app-loader>
+</div>
